@@ -2,23 +2,25 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('List Files') {
             steps {
                 echo 'Listing files from repo'
-                bat 'ls -la'
+                bat 'dir' // Changed from 'ls -la'
             }
         }
-
         stage('Show HTML Preview Info') {
             steps {
-                echo 'inside of html file'
-                bat 'head -n 10 index.html'
+                echo 'HTML Preview Info stage'
             }
         }
-
         stage('Done!') {
             steps {
-                echo 'Pipeline done'
+                echo 'Pipeline completed successfully!'
             }
         }
     }
