@@ -5,14 +5,14 @@ pipeline {
         stage('List Files') {
             steps {
                 echo 'Listing files from repo'
-                sh 'ls -la'
+                bat 'ls -la'
             }
         }
 
         stage('Show HTML Preview Info') {
             steps {
                 echo 'inside of html file'
-                sh 'head -n 10 index.html'
+                bat 'head -n 10 index.html'
             }
         }
 
