@@ -2,30 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone the Repository') {
-            steps {
-                echo 'Cloning the dreamy ToDo app '
-                git 'https://github.com/sahithi-jammula/CDDPROJECT.git'
-            }
-        }
-
         stage('List Files') {
             steps {
-                echo 'Let’s see what’s inside'
-                sh 'ls -l'
+                echo 'Listing files from repo'
+                sh 'ls -la'
             }
         }
 
         stage('Show HTML Preview Info') {
             steps {
-                echo 'Your ToDo app HTML and CSS are ready '
-                sh 'cat index.html | head -n 20'
+                echo 'inside of html file'
+                sh 'head -n 10 index.html'
             }
         }
 
         stage('Done!') {
             steps {
-                echo 'Pipeline completed w'
+                echo 'Pipeline done'
             }
         }
     }
